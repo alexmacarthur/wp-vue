@@ -1,8 +1,18 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
+var config = require('./config');
+var pkg = require('./package.json');
+
+const banner = `
+  ${pkg.name} - ${pkg.description}
+  Author: ${pkg.author}
+  Version: v${pkg.version}
+  URL: ${pkg.homepage}
+  License: ${pkg.license}
+`;
 
 module.exports = {
-  entry: './src/main.js',
+  entry: ['babel-polyfill', './src/main.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -12,16 +22,28 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
-            // the "scss" and "sass" values for the lang attribute to the right configs here.
-            // other preprocessors should work out of the box, no loader config like this necessary.
-            'scss': 'vue-style-loader!css-loader!sass-loader',
-            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+        use: {
+          loader: 'vue-loader',
+          options: {
+            loaders: {
+              scss: [
+                'vue-style-loader',
+                'css-loader',
+                {
+                  loader: 'sass-loader'
+                },
+                {
+                  loader: 'sass-resources-loader',
+                  options: {
+                    resources: [
+                      path.resolve(__dirname, './src/assets/scss/_variables.scss'),
+                      path.resolve(__dirname, './src/assets/scss/_mixins.scss'),
+                    ]
+                  }
+                }
+              ]
+            }
           }
-          // other vue-loader options go here
         }
       },
       {
@@ -39,6 +61,7 @@ module.exports = {
     ]
   },
   resolve: {
+    extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     }
@@ -50,12 +73,19 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
-}
+  devtool: '#eval-source-map',
+  plugins: [
+    new webpack.DefinePlugin(config),
+    new webpack.BannerPlugin({
+      banner
+    })
+  ]
+};
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
-  // http://vue-loader.vuejs.org/en/workflow/production.html
+
+  module.exports.devtool = false;
+
   module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.DefinePlugin({
       'process.env': {
@@ -71,5 +101,6 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
-  ])
+  ]);
+
 }

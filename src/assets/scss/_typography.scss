@@ -1,0 +1,57 @@
+html {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: 100%;
+  line-height: $base-line-height;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font-family;
+  font-size: $medium-font-size;
+  font-weight: normal;
+  line-height: $heading-line-height;
+  margin: $small-spacing 0;
+}
+
+h1 {
+  font-size: $header-font-size;
+  font-weight: 100;
+}
+
+p {
+  margin: 0 0 $small-spacing;
+  font-size: $base-font-size;
+}
+
+a {
+  color: $action-color;
+  text-decoration: none;
+  transition: color $base-duration $base-timing;
+  cursor: pointer;
+
+  &:hover {
+    color: darken($action-color, 25%);
+  }
+
+  &:focus {
+    outline: none
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+    opacity: .5;
+  }
+}
+
+hr {
+  border-bottom: $base-border;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: $base-spacing 0;
+}

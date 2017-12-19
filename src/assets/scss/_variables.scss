@@ -1,0 +1,50 @@
+// Typography
+$heading-font-family: 'Nunito', sans-serif;
+$base-font-family: 'Open Sans', sans-serif;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Font sizes
+$header-font-size: 2rem;
+$medium-font-size: 1.5rem;
+$base-font-size: 1rem;
+$small-font-size: .75rem;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+$white: #ffffff;
+$blue: #1565c0;
+$gray: #333;
+$gray--medium: #999;
+$gray--light: #ddd;
+$gray--extraLight: #fafafa;
+$salmon: #E56B70;
+
+// Font Colors
+$base-font-color: $gray;
+$action-color: $salmon;
+
+// Border
+$base-border-color: $gray--light;
+$base-border: 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color: #fff;
+$secondary-background-color: tint($base-border-color, 75%);
+
+// Focus
+$focus-outline-color: transparentize($action-color, 0.4);
+$focus-outline-width: 3px;
+$focus-outline: $focus-outline-width solid $focus-outline-color;
+$focus-outline-offset: 2px;
+
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;
