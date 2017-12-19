@@ -4,9 +4,12 @@
       <h2>Endpoint</h2>
       <p>Enter a valid WordPress REST endpoint.</p>
       <input v-model="updatedEndpoint" type="text">
+      <span v-if="error">{{ error }}</span>
       <input type="submit" value="Save" />
     </form>
-    <a @click="close">Nevermind.</a>
+    <a
+      v-if="!error"
+      @click="close">Nevermind.</a>
   </div>
 </template>
 
@@ -15,6 +18,13 @@ import bus from '../bus';
 
 export default {
   name: 'Updater',
+
+  props: {
+    error: {
+      type: String,
+      default: ''
+    }
+  },
 
   data() {
     return {
@@ -81,6 +91,12 @@ export default {
     &:hover {
       color: $gray;
     }
+  }
+
+  span {
+    color: $salmon;
+    display: inline-block;
+    margin-bottom: 1rem;
   }
 </style>
 

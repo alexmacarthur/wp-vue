@@ -61,7 +61,8 @@ export default {
         response = await Axios.get(`${bus.REST_ENDPOINT}/posts?per_page=${POSTS_PER_PAGE}&page=${this.page}`);
         this.totalPages = response.headers['x-wp-totalpages'];
       } catch (error) {
-        bus.$emit('toggleLoading', 'There was an error with the REST request.');
+        bus.$emit('showUpdater', 'Are you sure that\'s a valid endpoint?');
+        bus.$emit('toggleLoading', false);
         return;
       }
 

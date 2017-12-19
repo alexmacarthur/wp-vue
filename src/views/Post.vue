@@ -98,13 +98,13 @@
 
 <style scoped lang="scss">
   article {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     background: $gray--extraLight;
     padding: 1rem;
 
     @include media($small) {
-      padding: 2rem;
+      padding: 3rem;
     }
   }
 

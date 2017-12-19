@@ -7,20 +7,17 @@
 
     <div id="wrapper">
 
-      <transition name="fade">
-        <Updater
-          v-if="showUpdater"
-          @close="showUpdater = false"
-        />
-      </transition>
+      <Updater
+        v-if="showUpdater"
+        :error="error"
+        @close="showUpdater = false"
+      />
 
-      <transition name="fade">
-        <Loading
-          v-if="loadingOn"
-          :message="loadingMessage"
-          :showWheel="loadingWheel"
-        />
-      </transition>
+      <Loading
+        v-if="loadingOn"
+        :message="loadingMessage"
+        :showWheel="loadingWheel"
+      />
 
       <router-view :key="this.viewKey"></router-view>
 
@@ -42,11 +39,12 @@
 
     data () {
       return {
+        error: '',
         loadingOn: true,
         loadingMessage: 'Loading WP Vue',
         loadingWheel: true,
         showUpdater: false,
-        viewKey: 0
+        viewKey: 0,
       }
     },
 
@@ -68,6 +66,15 @@
       bus.$on('bumpViewKey', (loadingMessage) => {
         bus.$emit('toggleLoading', loadingMessage);
         this.viewKey = this.viewKey + 1;
+      });
+
+      bus.$on('showUpdater', (errorMessage) => {
+        this.showUpdater = true;
+        this.error = errorMessage;
+      });
+
+      bus.$on('clearErrors', () => {
+        this.error = '';
       });
     },
 
@@ -96,13 +103,5 @@
     @include media($small) {
       padding: 2rem;
     }
-  }
-
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .25s
-  }
-
-  .fade-enter, .fade-leave-to {
-    opacity: 0
   }
 </style>

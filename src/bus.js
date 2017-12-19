@@ -14,7 +14,8 @@ export default new Vue({
   methods: {
     updateEndpoint: function(endpoint) {
       this.REST_ENDPOINT = endpoint;
-      this.$emit('bumpViewKey', 'Updating REST Endpoint');
+      this.$emit('clearErrors');
+      this.$emit('bumpViewKey', 'Updating content...');
     }
   }
 });
