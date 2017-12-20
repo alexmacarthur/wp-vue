@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 /**
- * A pretty barren Vue component resonsible for holding the endpoint
+ * A pretty barren Vue component responsible for holding the endpoint
  * as well as carrying events between components.
  */
 export default new Vue({
