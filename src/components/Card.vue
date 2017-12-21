@@ -12,7 +12,12 @@
     </span>
     <h3>
       <router-link
-        :to="{ name: 'post', params: { slug: post.slug } }"
+        :to="{
+          name: 'post',
+          params: {
+            slug: post.slug
+          }
+        }"
         v-html="post.title.rendered">
       </router-link>
     </h3>
@@ -36,7 +41,8 @@ export default {
   li {
     display: flex;
     flex-direction: column;
-    background: $gray--extraLight;
+    background: $gray--light;
+    border: 2px solid darken($gray--light, 5%);
     padding: 2rem 1rem;
     text-align: center;
 

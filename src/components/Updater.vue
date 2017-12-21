@@ -5,7 +5,7 @@
       <p>Enter a valid WordPress REST endpoint.</p>
       <input v-model="updatedEndpoint" type="text">
       <span v-if="error">{{ error }}</span>
-      <input type="submit" value="Save" />
+      <button type="submit">Save</button>
     </form>
     <a
       v-if="!error"
@@ -32,14 +32,8 @@ export default {
     }
   },
 
-  computed: {
-    endpoint: function () {
-      return bus.REST_ENDPOINT;
-    }
-  },
-
   created: function () {
-    this.updatedEndpoint = this.endpoint;
+    this.updatedEndpoint = this.$store.state.endpoint;
   },
 
   methods: {
@@ -55,8 +49,12 @@ export default {
         eventLabel: `Update to ${this.updatedEndpoint}`
       });
 
-      bus.updateEndpoint(this.updatedEndpoint);
+      this.$store.commit('cache/wipe');
+
+      this.$store.commit('updateEndpoint', this.updatedEndpoint);
+
       this.$router.push('/posts');
+
       this.$emit('close');
     }
   }
@@ -83,6 +81,15 @@ export default {
     text-align: center;
     width: 350px;
     max-width: calc(100% - 2rem);
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: .75rem;
+  }
+
+  input {
+    border: 2px solid $gray--mediumLight;
   }
 
   a {

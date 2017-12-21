@@ -23,8 +23,8 @@ $white: #ffffff;
 $blue: #1565c0;
 $gray: #333;
 $gray--medium: #999;
-$gray--light: #ddd;
-$gray--extraLight: #fafafa;
+$gray--mediumLight: lighten($gray--medium, 25%);
+$gray--light: #fafafa;
 $salmon: #E56B70;
 
 // Font Colors

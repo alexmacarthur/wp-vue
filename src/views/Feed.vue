@@ -28,12 +28,14 @@
 
 <script>
 import bus from '../bus';
-import Axios from 'axios';
+import ajax from '../mixins/ajax';
 import Card from '../components/Card';
 import Pagination from '../components/Pagination';
 
 export default {
   name: 'Feed',
+
+  mixins: [ajax],
 
   data () {
     return {
@@ -58,7 +60,9 @@ export default {
       let response;
 
       try {
-        response = await Axios.get(`${bus.REST_ENDPOINT}/posts?per_page=${POSTS_PER_PAGE}&page=${this.page}`);
+        response = await this.get(
+          `/posts?per_page=${POSTS_PER_PAGE}&page=${this.page}`
+        );
         this.totalPages = response.headers['x-wp-totalpages'];
       } catch (error) {
         bus.$emit('showUpdater', 'Are you sure that\'s a valid endpoint?');
@@ -68,7 +72,37 @@ export default {
 
       this.posts = await this.getFeaturedImages(response.data);
 
+      this.getAdjacentPageData();
+
       bus.$emit('toggleLoading', false);
+    },
+
+    getAdjacentPageData: async function (prevPage = false) {
+
+      let page = prevPage === true
+              ? parseInt(this.page) - 1
+              : parseInt(this.page) + 1;
+
+      let response;
+
+      if(page > 0) {
+        try {
+          response = await this.get(
+            `/posts?per_page=${POSTS_PER_PAGE}&page=${page}`
+          );
+        } catch (error) {
+          console.error(error);
+        }
+
+        // response.data.forEach((post) => {
+        //   if(!post.hasOwnProperty('featured_media')) return;
+        //   this.get(`/media/${post.featured_media}`);
+        // });
+      }
+
+      if(!prevPage) {
+        this.getAdjacentPageData(true);
+      }
     },
 
     getFeaturedImages: function (posts) {
@@ -78,7 +112,14 @@ export default {
             let response;
 
             try {
-              response = await Axios.get(`${bus.REST_ENDPOINT}/media/${post.featured_media}`);
+
+              if(post.featured_media <= 0) {
+                throw "No featured image.";
+              }
+
+              response = await this.get(
+                `/media/${post.featured_media}`
+              );
               post.featured_image = response.data.media_details.sizes['medium'].source_url;
             } catch (error) {
               post.featured_image = null;
