@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import bus from '../bus';
-
 export default {
   name: 'TopBar',
 
@@ -22,7 +20,7 @@ export default {
 
   computed: {
     splitEndpoint: function () {
-      return bus.REST_ENDPOINT.split('/')
+      return this.$store.state.endpoint.split('/')
     },
 
     sourceURL: function () {
@@ -47,8 +45,9 @@ export default {
     text-align: center;
     align-items: center;
     margin-bottom: 1rem;
-    background: $gray--extraLight;
+    background: rgba($gray--light, .9);
     padding: 1rem 2rem;
+    border-bottom: 2px solid darken($gray--light, 5%);
 
     @include media($mobile) {
       flex-direction: row;

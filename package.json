@@ -1,7 +1,7 @@
 {
   "name": "wp-vue",
   "description": "Just a Vue template that displays posts via the WordPress REST API. Rip this sucka apart and make it your own!",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "Alex MacArthur <alex@macarthur.me> (https://macarthur.me)",
   "scripts": {
@@ -16,7 +16,8 @@
     "axios": "^0.17.1",
     "vue": "^2.5.9",
     "vue-analytics": "^5.7.1",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
   "keywords": [
     "vue",
@@ -42,7 +43,7 @@
     "webpack-dev-server": "^2.2.0"
   },
   "main": "src/main.js",
-  "repository":   {
+  "repository": {
     "type": "git",
     "url": "https://github.com/alexmacarthur/wp-vue"
   }

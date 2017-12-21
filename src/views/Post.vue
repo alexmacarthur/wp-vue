@@ -3,7 +3,7 @@
 
     <article>
 
-      <router-link :to="{path: '/'}">Back to All Posts</router-link>
+      <a @click="goBack">Back to All Posts</a>
 
       <header>
         <img
@@ -23,65 +23,58 @@
 <script>
   import bus from '../bus';
   import utils from '../mixins/utils';
-  import Axios from 'axios';
+  import ajax from '../mixins/ajax';
   import PostBody from '../components/PostBody';
 
   export default {
     name: 'Post',
 
-    mixins: [utils],
+    mixins: [utils, ajax],
 
     data () {
       return {
         post: {},
+        title: '',
+        content: '',
         featured_image: ''
       }
     },
 
-    computed: {
-      title: function() {
-        return this.post.hasOwnProperty('title')
-          ? this.post['title'].rendered
-          : '';
-      },
-
-      content: function() {
-        return this.post.hasOwnProperty('content')
-          ? this.post['content'].rendered
-          : '';
-      }
-    },
-
     created: async function () {
-      this.post = await this.getPost();
+      this.post = await this.setPost();
+      this.title = this.post.title.rendered;
+      this.content = this.post.content.rendered;
       this.featured_image = await this.getFeaturedImage(this.post.featured_media);
 
       bus.$emit('toggleLoading', false);
     },
 
     methods: {
-      getPost: async function () {
-        let response;
+      setPost: function () {
+        return new Promise(async (resolve, reject) => {
+          let response;
 
-        try {
-          response = await Axios.get(`${bus.REST_ENDPOINT}/posts?slug=${this.$route.params.slug}`);
-        } catch (error) {
-          bus.$emit('toggleLoading', 'There was an error with the REST request.');
-          return null;
-        }
+          try {
+            response = await this.get(`/posts?slug=${this.$route.params.slug}`);
+          } catch (error) {
+            this.$router.push({name: 'four-o-four'});
+            return;
+          }
 
-        if(response.data[0] === undefined) {
-          this.$router.push({name: 'four-o-four'});
-        }
+          resolve(response.data[0]);
 
-        return response.data[0];
+        });
       },
 
       getFeaturedImage: async function (id) {
         let response;
-
         try {
-          response = await Axios.get(`${bus.REST_ENDPOINT}/media/${id}`);
+
+          if(post.featured_media <= 0) {
+            throw "No featured image.";
+          }
+
+          response = await this.get(`/media/${id}`);
         } catch (error) {
           return null;
         }
@@ -100,7 +93,8 @@
   article {
     max-width: 900px;
     margin: 0 auto;
-    background: $gray--extraLight;
+    background: $gray--light;
+    border: 2px solid darken($gray--light, 5%);
     padding: 1rem;
 
     @include media($small) {

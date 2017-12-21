@@ -16,7 +16,7 @@
   footer {
     text-align: center;
     padding: 1rem;
-    background: $gray--extraLight;
+    background: $gray--light;
   }
 
   a {

@@ -14,7 +14,7 @@ const routes = [
     redirect: '/posts'
   },
   {
-    name: 'posts',
+    name: 'pots',
     path: '/posts',
     component: Feed
   },
@@ -30,8 +30,12 @@ const routes = [
   },
   {
     name: 'four-o-four',
-    path: '*',
+    path: '/404',
     component: FourOFour
+  },
+  {
+    path: '*',
+    redirect: '/404'
   }
 ];
 

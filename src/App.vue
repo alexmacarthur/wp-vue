@@ -49,6 +49,9 @@
     },
 
     created: function () {
+
+      this.assignEndpointFromURL();
+
       bus.$on('toggleLoading', (status = true) => {
 
         if(typeof status === 'string') {
@@ -73,9 +76,19 @@
         this.error = errorMessage;
       });
 
-      bus.$on('clearErrors', () => {
+      bus.$on('clearError', () => {
         this.error = '';
       });
+    },
+
+    methods: {
+      assignEndpointFromURL: function () {
+        let endpoint = this.getQueryString('endpoint');
+
+        if(!endpoint) return;
+
+        this.$store.commit('updateEndpoint', endpoint);
+      }
     },
 
     components: {
