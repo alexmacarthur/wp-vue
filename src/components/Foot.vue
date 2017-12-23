@@ -13,6 +13,9 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../assets/scss/_mixins.scss";
+  @import "../assets/scss/_variables.scss";
+
   footer {
     text-align: center;
     padding: 1rem;

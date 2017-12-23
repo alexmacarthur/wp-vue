@@ -44,7 +44,7 @@ const router = new VueRouter({
   routes
 });
 
-router.afterEach((to, from) => {
+router.afterEach(() => {
 
   //-- Bump the key on App component to force component to update on route change.
   bus.$emit('bumpViewKey');

@@ -105,6 +105,9 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../assets/scss/_mixins.scss";
+  @import "../assets/scss/_variables.scss";
+
   article {
     max-width: 900px;
     margin: 0 auto;

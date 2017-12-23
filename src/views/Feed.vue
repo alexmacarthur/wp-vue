@@ -59,7 +59,7 @@ export default {
 
       try {
         response = await this.get(
-          `/posts?per_page=${POSTS_PER_PAGE}&page=${this.page}`
+          `/posts?per_page=${process.env.POSTS_PER_PAGE}&page=${this.page}`
         );
         this.totalPages = response.headers['x-wp-totalpages'];
       } catch (error) {
@@ -86,7 +86,7 @@ export default {
       if(page > 0) {
         try {
           response = await this.get(
-            `/posts?per_page=${POSTS_PER_PAGE}&page=${page}`
+            `/posts?per_page=${process.env.POSTS_PER_PAGE}&page=${page}`
           );
         } catch (error) {
           console.error(error);
@@ -141,6 +141,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "../assets/scss/_mixins.scss";
+  @import "../assets/scss/_variables.scss";
 
   section {
     text-align: center;

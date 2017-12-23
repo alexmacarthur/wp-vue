@@ -50,6 +50,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import '../assets/scss/_variables.scss';
+  @import '../assets/scss/_mixins.scss';
+
   nav {
     display: flex;
     flex-direction: column;

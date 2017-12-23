@@ -2,6 +2,7 @@
   <nav>
     <ul>
       <li>
+        The total page count is: {{totalPages}}
         <router-link
           :class="{'is-disabled' : currentPage === 1}"
           :to="{ name: 'page', params: {page: this.currentPage - 1} }"
@@ -33,6 +34,7 @@ export default {
     },
 
     totalPages: {
+      required: true,
       default: 1
     }
   }
@@ -41,6 +43,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "../assets/scss/_mixins.scss";
+  @import "../assets/scss/_variables.scss";
+
   nav {
     margin: 2rem 0 0;
     text-align: center;

@@ -16,6 +16,8 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "../assets/scss/_mixins.scss";
+  @import "../assets/scss/_variables.scss";
   @import '../assets/scss/_core-alignment-classes.scss';
 
   img {

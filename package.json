@@ -5,20 +5,13 @@
   "license": "MIT",
   "author": "Alex MacArthur <alex@macarthur.me> (https://macarthur.me)",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "dev": "NODE_ENV=development parcel index.html",
+    "build": "NODE_ENV=production parcel build index.html"
   },
   "bugs": {
     "url": "https://github.com/alexmacarthur/wp-vue/issues"
   },
   "homepage": "https://wp.netlify.com",
-  "dependencies": {
-    "axios": "^0.17.1",
-    "vue": "^2.5.9",
-    "vue-analytics": "^5.7.1",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
-  },
   "keywords": [
     "vue",
     "wordpress",
@@ -26,21 +19,21 @@
     "REST",
     "API"
   ],
+  "dependencies": {
+    "axios": "^0.17.1",
+    "vue": "^2.5.9",
+    "vue-analytics": "^5.7.1",
+    "vue-hot-reload-api": "^2.3.0",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
   "devDependencies": {
+    "@vue/component-compiler-utils": "^1.0.0",
     "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "cross-env": "^3.0.0",
-    "css-loader": "^0.25.0",
-    "file-loader": "^0.9.0",
-    "node-sass": "^4.5.0",
-    "sass-loader": "^5.0.1",
-    "sass-resources-loader": "^1.3.1",
-    "vue-loader": "^11.1.4",
-    "vue-template-compiler": "^2.2.1",
-    "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0"
+    "node-sass": "^4.7.2",
+    "parcel-bundler": "^1.7.0",
+    "vue-template-compiler": "^2.5.16"
   },
   "main": "src/main.js",
   "repository": {

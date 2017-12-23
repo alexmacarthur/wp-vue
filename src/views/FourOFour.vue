@@ -28,6 +28,9 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../assets/scss/_mixins.scss";
+  @import "../assets/scss/_variables.scss";
+
   div {
     text-align: center;
     display: flex;

@@ -35,6 +35,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "../assets/scss/_mixins.scss";
+  @import "../assets/scss/_variables.scss";
+
   div {
     position: fixed;
     top: 0;

@@ -101,7 +101,7 @@
 </script>
 
 <style lang="scss">
-  @import "assets/scss/_base.scss";
+  @import "./assets/scss/_base.scss";
 
   #app {
     -webkit-font-smoothing: antialiased;
