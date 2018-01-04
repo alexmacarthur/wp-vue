@@ -5,8 +5,7 @@
 This is just a simple Vue blog that displays posts from a WordPress REST API endpoint. Clone or fork this sucka & rip it apart to suit your own needs. If you have ideas to make it better for everyone else, contribute!
 
 ## Install
-
-1. Make sure you have `yarn` installed on your machine, and run `yarn install`.
+After making sure you have Yarn installed on your machine, run `yarn install`. 
  
 ## Usage
 
@@ -45,9 +44,7 @@ Example:
 Instead of using the default, this will use whatever endpoint you provide in the URL.
 
 ## Contribute
-
 Please do! See the [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
-
 MIT © [Alex MacArthur](https://macarthur.me)
