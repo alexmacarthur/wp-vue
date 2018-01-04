@@ -1,7 +1,7 @@
 {
   "name": "wp-vue",
   "description": "Just a Vue template that displays posts via the WordPress REST API. Rip this sucka apart and make it your own!",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "author": "Alex MacArthur <alex@macarthur.me> (https://macarthur.me)",
   "scripts": {

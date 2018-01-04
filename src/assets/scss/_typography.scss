@@ -16,6 +16,14 @@ h6 {
   font-weight: normal;
   line-height: $heading-line-height;
   margin: $small-spacing 0;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      color: $action-color;
+    }
+  }
 }
 
 h1 {

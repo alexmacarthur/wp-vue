@@ -16,7 +16,6 @@ $small-font-size: .75rem;
 $base-border-radius: 3px;
 $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
-$base-z-index: 0;
 
 // Colors
 $white: #ffffff;
@@ -37,7 +36,6 @@ $base-border: 1px solid $base-border-color;
 
 // Background Colors
 $base-background-color: #fff;
-$secondary-background-color: tint($base-border-color, 75%);
 
 // Focus
 $focus-outline-color: transparentize($action-color, 0.4);

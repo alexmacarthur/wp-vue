@@ -21,7 +21,7 @@ button,
   white-space: nowrap;
 
   &:hover {
-    background-color: shade($action-color, 20%);
+    background-color: darken($action-color, 10%);
     color: #fff;
   }
 
