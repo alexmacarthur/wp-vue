@@ -14,7 +14,7 @@ const routes = [
     redirect: '/posts'
   },
   {
-    name: 'pots',
+    name: 'posts',
     path: '/posts',
     component: Feed
   },
