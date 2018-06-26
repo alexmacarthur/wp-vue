@@ -16,10 +16,10 @@
       />
     </ul>
 
-    <Pagination
+    <pagination
       :currentPage="parseInt(page)"
       :totalPages="parseInt(totalPages)"
-    ></Pagination>
+    ></pagination>
 
   </div>
 </template>
@@ -28,7 +28,7 @@
 import bus from '../bus';
 import ajax from '../mixins/ajax';
 import Card from '../components/Card';
-import Pagination from '../components/Pagination';
+import pagination from '../components/pagination';
 
 export default {
   name: 'Feed',
