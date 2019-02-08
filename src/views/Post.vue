@@ -66,7 +66,7 @@
 
     methods: {
       setPost: function () {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
           let response;
 
           try {

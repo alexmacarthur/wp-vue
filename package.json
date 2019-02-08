@@ -1,23 +1,15 @@
 {
   "name": "wp-vue",
-  "description": "Just a Vue template that displays posts via the WordPress REST API. Rip this sucka apart and make it your own!",
-  "version": "0.2.0",
-  "license": "MIT",
+  "version": "1.0.0",
   "author": "Alex MacArthur <alex@macarthur.me> (https://macarthur.me)",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "serve": "NODE_ENV=development vue-cli-service serve",
+    "build": "NODE_ENV=production vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "lint:fix": "eslint ./src --fix"
   },
   "bugs": {
     "url": "https://github.com/alexmacarthur/wp-vue/issues"
-  },
-  "homepage": "https://wp.netlify.com",
-  "dependencies": {
-    "axios": "^0.17.1",
-    "vue": "^2.5.9",
-    "vue-analytics": "^5.7.1",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
   },
   "keywords": [
     "vue",
@@ -26,25 +18,39 @@
     "REST",
     "API"
   ],
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "cross-env": "^3.0.0",
-    "css-loader": "^0.25.0",
-    "file-loader": "^0.9.0",
-    "node-sass": "^4.5.0",
-    "sass-loader": "^5.0.1",
-    "sass-resources-loader": "^1.3.1",
-    "vue-loader": "^11.1.4",
-    "vue-template-compiler": "^2.2.1",
-    "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0"
+  "homepage": "https://wp.netlify.com",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "vue": "^2.6.6",
+    "vue-analytics": "^5.16.4",
+    "vue-router": "^3.0.2",
+    "vuex": "^3.1.0"
   },
-  "main": "src/main.js",
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.5.0",
+    "@vue/cli-plugin-eslint": "^3.5.0",
+    "@vue/cli-service": "^3.5.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "style-resources-loader": "^1.2.1",
+    "vue-cli-plugin-style-resources-loader": "^0.1.3",
+    "vue-template-compiler": "^2.5.21"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/alexmacarthur/wp-vue"
-  }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }

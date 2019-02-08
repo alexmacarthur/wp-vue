@@ -1,4 +1,9 @@
 [build]
   base    = "/"
-  publish = "/"
-  command = "yarn run build"
+  publish = "/dist"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

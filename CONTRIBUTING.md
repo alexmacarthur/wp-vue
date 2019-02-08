@@ -3,9 +3,9 @@
 ## Set Up Local Environment
 
 1. Clone the repository & `cd` into it.
-2. Make sure `yarn` is on your machine and run `yarn install`.
-3. To spin up locally with hot reloading, execute `yarn run dev`.
-4. When you're ready to compile for production, run `yarn run build`.
+2. Run `npm install`.
+3. To spin up locally with hot reloading, execute `npm run serve`.
+4. When you're ready to compile for production, run `npm run build`.
 
 ## Feature Requests / Bug Reports
 
