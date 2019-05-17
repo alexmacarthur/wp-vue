@@ -1,6 +1,6 @@
 {
   "name": "wp-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Alex MacArthur <alex@macarthur.me> (https://macarthur.me)",
   "scripts": {
     "serve": "NODE_ENV=development vue-cli-service serve",
@@ -20,7 +20,6 @@
   ],
   "homepage": "https://wp.netlify.com",
   "dependencies": {
-    "axios": "^0.18.0",
     "vue": "^2.6.6",
     "vue-analytics": "^5.16.4",
     "vue-router": "^3.0.2",
