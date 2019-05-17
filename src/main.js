@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import VueAnalytics from 'vue-analytics';
-import App from './App.vue';
-import router from './router';
-import utils from './mixins/utils';
-import store from './store';
+import Vue from "vue";
+import VueAnalytics from "vue-analytics";
+import App from "./App.vue";
+import router from "./router";
+import utils from "./mixins/utils";
+import store from "./store";
 
 Vue.mixin(utils);
 
@@ -14,8 +14,8 @@ Vue.use(VueAnalytics, {
 });
 
 new Vue({
-  el: '#app',
+  el: "#app",
   router,
   store,
   render: h => h(App)
-}).$mount('#app');
+}).$mount("#app");

@@ -1,53 +1,52 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Feed from './views/Feed';
-import FourOFour from './views/FourOFour';
-import Post from './views/Post';
-import bus from './bus';
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Feed from "./views/Feed";
+import FourOFour from "./views/FourOFour";
+import Post from "./views/Post";
+import bus from "./bus";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    name: 'home',
-    path: '/',
-    redirect: '/posts'
+    name: "home",
+    path: "/",
+    redirect: "/posts"
   },
   {
-    name: 'posts',
-    path: '/posts',
+    name: "posts",
+    path: "/posts",
     component: Feed
   },
   {
-    name: 'post',
-    path: '/posts/:slug',
+    name: "post",
+    path: "/posts/:slug",
     component: Post
   },
   {
-    name: 'page',
-    path: '/page/:page',
+    name: "page",
+    path: "/page/:page",
     component: Feed
   },
   {
-    name: 'four-o-four',
-    path: '/404',
+    name: "four-o-four",
+    path: "/404",
     component: FourOFour
   },
   {
-    path: '*',
-    redirect: '/404'
+    path: "*",
+    redirect: "/404"
   }
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   routes
 });
 
 router.afterEach(() => {
-
   //-- Bump the key on App component to force component to update on route change.
-  bus.$emit('bumpViewKey');
-})
+  bus.$emit("bumpViewKey");
+});
 
 export default router;

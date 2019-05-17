@@ -6,7 +6,9 @@
     "serve": "NODE_ENV=development vue-cli-service serve",
     "build": "NODE_ENV=production vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lint:fix": "eslint ./src --fix"
+    "lint:fix": "eslint ./src --fix",
+    "precommit": "pretty-quick --staged",
+    "prettier": "prettier --write \"./src/**/*.js\""
   },
   "bugs": {
     "url": "https://github.com/alexmacarthur/wp-vue/issues"
@@ -32,8 +34,12 @@
     "@vue/cli-service": "^3.5.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
+    "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-vue": "^5.0.0",
+    "husky": "^2.3.0",
     "node-sass": "^4.11.0",
+    "prettier": "^1.17.1",
+    "pretty-quick": "^1.10.0",
     "sass-loader": "^7.1.0",
     "style-resources-loader": "^1.2.1",
     "vue-cli-plugin-style-resources-loader": "^0.1.3",
