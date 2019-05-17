@@ -1,6 +1,6 @@
 {
   "name": "wp-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Alex MacArthur <alex@macarthur.me> (https://macarthur.me)",
   "scripts": {
     "serve": "NODE_ENV=development vue-cli-service serve",
