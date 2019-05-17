@@ -1,6 +1,6 @@
 {
   "name": "wp-vue",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Alex MacArthur <alex@macarthur.me> (https://macarthur.me)",
   "scripts": {
     "serve": "NODE_ENV=development vue-cli-service serve",
@@ -22,22 +22,21 @@
   ],
   "homepage": "https://wp.netlify.com",
   "dependencies": {
-    "axios": "^0.18.0",
     "vue": "^2.6.6",
     "vue-analytics": "^5.16.4",
-    "vue-router": "^3.0.2",
-    "vuex": "^3.1.0"
+    "vue-router": "^3.0.6",
+    "vuex": "^3.1.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.5.0",
-    "@vue/cli-plugin-eslint": "^3.5.0",
-    "@vue/cli-service": "^3.5.0",
+    "@vue/cli-plugin-babel": "^3.7.0",
+    "@vue/cli-plugin-eslint": "^3.7.0",
+    "@vue/cli-service": "^3.7.0",
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.8.0",
+    "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-vue": "^5.0.0",
     "husky": "^2.3.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "prettier": "^1.17.1",
     "pretty-quick": "^1.10.0",
     "sass-loader": "^7.1.0",
