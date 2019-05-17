@@ -14,7 +14,7 @@ export default {
         let response, data;
 
         if(this.$store.state.cache.requests[path] !== undefined) {
-          resolve(this.$store.state.cache.requests[path]);
+          return resolve(this.$store.state.cache.requests[path]);
         }
 
         try {
