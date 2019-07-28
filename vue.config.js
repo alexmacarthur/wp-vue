@@ -1,6 +1,5 @@
 const webpack = require("webpack");
 const path = require("path");
-const isProd = process.env.NODE_ENV === "production";
 
 const CONSTANTS = {
   POSTS_PER_PAGE: JSON.stringify(process.env.POSTS_PER_PAGE),
