@@ -37,7 +37,7 @@
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-vue": "^5.2.3",
     "husky": "^2.7.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "prettier": "^1.19.1",
     "pretty-quick": "^1.11.1",
     "sass-loader": "^7.3.1",
